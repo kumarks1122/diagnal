@@ -21,7 +21,7 @@ dApp.directive('scrollify', function() {
 		restrict: "A",
 		link: function(scope, element, attrs) {
 			var visibleHeight = element.height();
-			var threshold = 1000;
+			var threshold = 300;
 
 			element.scroll(function() {
 				var scrollableHeight = element.prop('scrollHeight');
