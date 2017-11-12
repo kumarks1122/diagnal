@@ -133,8 +133,10 @@ input:focus{
 }
 .close-icon{
 	position: absolute;
-	top: 18px;
+	top: 20px;
 	right: 6px;
+	background: none;
+	border: 0px;
 }
 .close-icon img{
 	height: 16px;
