@@ -1,0 +1,1 @@
+var dApp = angular.module('dApp',["ngResource", 'infinite-scroll']);

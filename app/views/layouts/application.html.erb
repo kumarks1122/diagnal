@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="dApp">
+  <head>
+    <title>Romentic Comedy - Diagnal</title>
+    <%= csrf_meta_tags %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body ng-controller="controller">
+    <header id="header" class="header">
+    	<div class="header-row row">
+    		<div class="header-option back-button-container">
+    			<a class="back-button">
+    				<img src="/assets/Back.png">
+    			</a>
+    		</div>
+    		<div class="header-option list-title-container">
+    			<h4 class="list-title">
+    				Romantic Comedy
+    			</h4>
+    		</div>
+    		<div class="header-option search-icon-container">
+    			<a class="search-icon" video-search>
+    				<img src="/assets/search.png">
+    			</a>
+    		</div>
+    	</div>
+    </header><!-- /header -->
+		<div class="search-form-container">
+			<form class="search-form" ng-model-options="{ allowInvalid: true, debounce: 200 }">
+  			<div class="search-form-div">
+					<input type="text" name="search" ng-model="searchText" ng-change="searchVideos(searchText)">
+					<button type="reset" class="close-icon">
+						<img src="/assets/close.png" alt="">
+					</button>
+				</div>
+				<div class="search-lists" ng-show="searchResults.length > 0">
+					<ul>
+						<li ng-repeat="result in searchResults track by $index" >
+							<span ng-bind-html="highlight(result, searchText)"></span>
+						</li>
+					</ul>
+				</div>
+			</form>
+		</div>
+		<div class="touch-overlay"></div>
+    <%= yield %>
+  </body>
+</html>
