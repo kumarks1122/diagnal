@@ -157,6 +157,8 @@ input:focus{
 	padding: 10px;
 	font-size: 16px;
 	border-bottom: 1px solid #aaa;
+	padding-top: 6px;
+	padding-bottom: 6px;
 }
 .search-lists ul li:last-child {
 	border-bottom: 0px;
