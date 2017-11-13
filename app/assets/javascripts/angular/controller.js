@@ -41,6 +41,7 @@ dApp.controller("controller", ["$scope", "routes", '$sce',
     $scope.resetForm = function() {
       $scope.searchText = "";
       $scope.searchResults = [];
+      $(".search-form-container").find("input").focus();
     }
   }
 ])
