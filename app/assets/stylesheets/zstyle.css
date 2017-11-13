@@ -178,3 +178,11 @@ input:focus{
 	position: absolute;
 	background-color: rgba(0, 0, 0, 0.62);
 }
+@media only screen and (min-width: 768px) {
+	.search-form-div	{
+		width: 50%;
+	}
+	.search-lists{
+		width: 50%;
+	}
+}

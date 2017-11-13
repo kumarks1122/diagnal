@@ -40,7 +40,7 @@
 				</div>
 				<div class="search-lists" ng-show="searchResults.length > 0">
 					<ul>
-						<li ng-repeat="result in searchResults track by $index" >
+						<li ng-repeat="result in searchResults track by $index" ng-click="applySearch()">
 							<span ng-bind-html="highlight(result, searchText)"></span>
 						</li>
 					</ul>

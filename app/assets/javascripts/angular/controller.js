@@ -13,6 +13,8 @@ dApp.controller("controller", ["$scope", "routes", '$sce',
         }, function(error) {
           console.log("error")
         })
+      } else {
+        $scope.searchResults = [];
       }
     }
 
@@ -26,7 +28,11 @@ dApp.controller("controller", ["$scope", "routes", '$sce',
     $scope.loadVideos = function() {
       if ($scope.isVideoAvailable) {
         $scope.page += 1;
-        routes.videos({page: $scope.page}, function(response) {
+        var params = {page: $scope.page};
+        if ($scope.searchText != "") {
+          params.q = $scope.searchText
+        }
+        routes.videos(params, function(response) {
         	$scope.videosData = $scope.videosData.concat(response.data);
           if (response.data.length == 0) {
             $scope.isVideoAvailable = false;
@@ -38,10 +44,23 @@ dApp.controller("controller", ["$scope", "routes", '$sce',
     }
     $scope.loadVideos()
 
+    $scope.applySearch = function () {
+      $scope.page = 0;
+      $scope.isVideoAvailable = true;
+      $scope.videosData = [];
+      $(".search-form-container").toggleClass('visible');
+      $(".touch-overlay").toggle(10);
+      $scope.loadVideos();
+    }
+
     $scope.resetForm = function() {
       $scope.searchText = "";
       $scope.searchResults = [];
       $(".search-form-container").find("input").focus();
+      $scope.page = 0;
+      $scope.isVideoAvailable = true;
+      $scope.videosData = [];
+      $scope.loadVideos();
     }
   }
 ])
