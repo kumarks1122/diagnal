@@ -1,6 +1,7 @@
-<div class="videos-container container" scrollify='loadVideos()' infinite-scroll='loadVideos()' infinite-scroll-distance='1' infinite-scroll-container=".videos-container">
+<div class="videos-container container" scrollify='loadVideos()'>
 	<div ng-repeat="video in videosData track by $index" class="video">
-		<img ng-src="/assets/{{video['poster-image']}}" onerror="this.src='/assets/placeholder_for_missing_posters.png'" alt="">
+		<img original-image ng-src="http://diagnal.doqik.com/assets/{{video['poster-image']}}" onerror="this.src='/assets/placeholder_for_missing_posters.png'" alt="">
+		<img class="loader-image" src="/assets/placeholder_for_missing_posters.png" alt="">
 		<div class="video-title">
 			<h4>{{video.name}}</h4>
 		</div>

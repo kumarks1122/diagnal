@@ -7,11 +7,13 @@ dApp.controller("controller", ["$scope", "routes", '$sce',
     $scope.videosData = [];
 
     $scope.searchVideos = function(searchText) {
-      routes.search({q: searchText}, function(response) {
-        $scope.searchResults = response.data
-      }, function(error) {
-        console.log("error")
-      })
+      if (searchText.length>2) {
+        routes.search({q: searchText}, function(response) {
+          $scope.searchResults = response.data
+        }, function(error) {
+          console.log("error")
+        })
+      }
     }
 
     $scope.highlight = function(text, search) {
@@ -33,6 +35,12 @@ dApp.controller("controller", ["$scope", "routes", '$sce',
           console.log("error")
         })
       }
+    }
+    $scope.loadVideos()
+
+    $scope.resetForm = function() {
+      $scope.searchText = "";
+      $scope.searchResults = [];
     }
   }
 ])

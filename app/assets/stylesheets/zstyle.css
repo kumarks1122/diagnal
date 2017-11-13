@@ -160,6 +160,11 @@ input:focus{
 	padding-top: 6px;
 	padding-bottom: 6px;
 }
+.search-lists ul li:active{
+	-moz-box-shadow:    inset 0 0 10px #000000;
+	-webkit-box-shadow: inset 0 0 10px #000000;
+	box-shadow:         inset 0 0 10px #000000;
+}
 .search-lists ul li:last-child {
 	border-bottom: 0px;
 }

@@ -10,7 +10,7 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body ng-controller="controller">
+  <body ng-controller="controller" ng-cloak>
     <header id="header" class="header">
     	<div class="header-row row">
     		<div class="header-option back-button-container">
@@ -34,7 +34,7 @@
 			<form class="search-form" ng-model-options="{ allowInvalid: true, debounce: 200 }">
   			<div class="search-form-div">
 					<input type="text" name="search" ng-model="searchText" ng-change="searchVideos(searchText)">
-					<button type="reset" class="close-icon">
+					<button type="reset" ng-click="resetForm()" class="close-icon">
 						<img src="/assets/close.png" alt="">
 					</button>
 				</div>
