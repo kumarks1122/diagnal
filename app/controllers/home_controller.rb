@@ -6,7 +6,7 @@ class HomeController < ApplicationController
 			data = JSON.parse(File.read(file))
 			data["page"]["content-items"]["content"].each do |video|
 				if params["q"].present?
-					if video["name"].downcase.include?(params["q"].downcase)
+					if video["name"].downcase.include?(params["q"].downcase.strip)
 						results << video
 					end
 				else

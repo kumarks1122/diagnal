@@ -44,10 +44,11 @@ dApp.controller("controller", ["$scope", "routes", '$sce',
     }
     $scope.loadVideos()
 
-    $scope.applySearch = function () {
+    $scope.applySearch = function (searchText) {
       $scope.page = 0;
       $scope.isVideoAvailable = true;
       $scope.videosData = [];
+      $scope.searchText = searchText;
       $(".search-form-container").toggleClass('visible');
       $(".touch-overlay").toggle(10);
       $scope.loadVideos();
