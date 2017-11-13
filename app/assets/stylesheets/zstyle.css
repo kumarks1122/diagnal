@@ -141,6 +141,9 @@ input:focus{
 .close-icon img{
 	height: 16px;
 }
+.close-icon:focus{
+	outline: none;
+}
 .search-lists{
 	width: 92%;
 	display: inline-block;
